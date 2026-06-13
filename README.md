@@ -59,3 +59,8 @@ Running the application using a local server ensures consistent resource loading
      python -m http.server 8080
      ```
 3. Open your browser and navigate to `http://localhost:8080`.
+
+## Demo Video
+
+YouTube:
+[https://youtube.com/your-video-link](https://youtu.be/-IlFLU7oEd8)
