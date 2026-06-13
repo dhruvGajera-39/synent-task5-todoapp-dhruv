@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful, responsive, and modern To-Do List Web Application with glassmorphism design, smooth micro-animations, and localStorage persistence.">
+    <title>TaskFlow // A Modern To-Do Experience</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Decorative background elements for the glassmorphic depth -->
+    <div class="bg-blur bg-blur-1" aria-hidden="true"></div>
+    <div class="bg-blur bg-blur-2" aria-hidden="true"></div>
+    <div class="bg-blur bg-blur-3" aria-hidden="true"></div>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h1>TaskFlow</h1>
+            </div>
+            <p class="subtitle">Streamline your day, one task at a time.</p>
+        </header>
+
+        <!-- Task Progress Section -->
+        <section class="progress-section" id="progressSection">
+            <div class="progress-info">
+                <span class="progress-label">Task Progress</span>
+                <span class="progress-percentage" id="progressPercentage">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+            </div>
+        </section>
+
+        <!-- Task Input Form -->
+        <form id="todoForm" class="todo-form" autocomplete="off">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="todoInput" 
+                    placeholder="What needs to be done today?" 
+                    required 
+                    aria-label="New task input"
+                >
+                <button type="submit" class="btn-add" id="addTaskBtn" aria-label="Add task">
+                    <span class="btn-text">Add Task</span>
+                    <span class="btn-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </form>
+
+        <!-- Filters & Actions -->
+        <section class="controls-section">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all" id="filterAll">All</button>
+                <button class="filter-btn" data-filter="pending" id="filterPending">Active</button>
+                <button class="filter-btn" data-filter="completed" id="filterCompleted">Completed</button>
+            </div>
+            <button class="btn-clear-completed" id="clearCompletedBtn" aria-label="Clear completed tasks">
+                Clear Completed
+            </button>
+        </section>
+
+        <!-- Task List Area -->
+        <section class="list-section">
+            <!-- Empty State Placeholder -->
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon" aria-hidden="true">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 7H2V9H22V7ZM22 15H2V17H22V15Z" fill="currentColor" opacity="0.3"/>
+                        <path d="M22 11H2V13H22V11Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <p class="empty-title">All caught up!</p>
+                <p class="empty-text">Add a new task to get started.</p>
+            </div>
+
+            <!-- The dynamic To-Do list -->
+            <ul class="todo-list" id="todoList" aria-live="polite">
+                <!-- Dynamically populated via script.js -->
+            </ul>
+        </section>
+
+        <!-- Footer Stats & Info -->
+        <footer class="app-footer">
+            <div class="footer-stats">
+                <span id="itemsLeftCount">0 items left</span>
+            </div>
+            <div class="footer-credits">
+                Designed with &hearts;
+            </div>
+        </footer>
+    </main>
+
+    <!-- Main JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
